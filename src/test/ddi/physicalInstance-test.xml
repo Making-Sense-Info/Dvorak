@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ddi:FragmentInstance xmlns:r="ddi:reusable:3_2" xmlns:ddi="ddi:instance:3_2">
+  <ddi:TopLevelReference>
+    <r:Agency>fr.insee</r:Agency>
+    <r:ID>53f892f1-4ddd-4768-9341-0cc84e398d3f</r:ID>
+    <r:Version>1</r:Version>
+    <r:TypeOfObject>PhysicalInstance</r:TypeOfObject>
+  </ddi:TopLevelReference>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <PhysicalInstance isUniversallyUnique="true" versionDate="2023-01-26T10:32:51.6004005Z" xmlns="ddi:physicalinstance:3_2">
+      <r:URN>urn:ddi:fr.insee:53f892f1-4ddd-4768-9341-0cc84e398d3f:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>53f892f1-4ddd-4768-9341-0cc84e398d3f</r:ID>
+      <r:Version>1</r:Version>
+      <r:Citation>
+        <r:Title>
+          <r:String xml:lang="fr-FR">test_vtl</r:String>
+        </r:Title>
+      </r:Citation>
+      <r:DataRelationshipReference>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>c7f59f89-59bd-434a-9c07-2ffa7ec6711a</r:ID>
+        <r:Version>1</r:Version>
+        <r:TypeOfObject>DataRelationship</r:TypeOfObject>
+      </r:DataRelationshipReference>
+    </PhysicalInstance>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <DataRelationship isUniversallyUnique="true" versionDate="2023-01-26T10:36:58.7958583Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:c7f59f89-59bd-434a-9c07-2ffa7ec6711a:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>c7f59f89-59bd-434a-9c07-2ffa7ec6711a</r:ID>
+      <r:Version>1</r:Version>
+      <LogicalRecord isUniversallyUnique="true">
+        <r:URN>urn:ddi:fr.insee:45b2ee9c-90b3-4802-9fb2-5812d1369247:1</r:URN>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>45b2ee9c-90b3-4802-9fb2-5812d1369247</r:ID>
+        <r:Version>1</r:Version>
+        <LogicalRecordName>
+          <r:String xml:lang="fr-FR">ETAB</r:String>
+        </LogicalRecordName>
+        <VariablesInRecord>
+          <VariableUsedReference>
+            <r:Agency>fr.insee</r:Agency>
+            <r:ID>15c84163-b6bd-421d-9c1a-d23c84710fff</r:ID>
+            <r:Version>1</r:Version>
+            <r:TypeOfObject>Variable</r:TypeOfObject>
+          </VariableUsedReference>
+          <VariableUsedReference>
+            <r:Agency>fr.insee</r:Agency>
+            <r:ID>70f9383e-af65-49c4-9ed0-18eca0579d8e</r:ID>
+            <r:Version>1</r:Version>
+            <r:TypeOfObject>Variable</r:TypeOfObject>
+          </VariableUsedReference>
+          <VariableUsedReference>
+            <r:Agency>fr.insee</r:Agency>
+            <r:ID>7a43177f-df43-48b1-9603-259340e92696</r:ID>
+            <r:Version>1</r:Version>
+            <r:TypeOfObject>Variable</r:TypeOfObject>
+          </VariableUsedReference>
+          <VariableUsedReference>
+            <r:Agency>fr.insee</r:Agency>
+            <r:ID>1aba9327-485e-4e97-8ede-b375c8f3b76b</r:ID>
+            <r:Version>1</r:Version>
+            <r:TypeOfObject>Variable</r:TypeOfObject>
+          </VariableUsedReference>
+          <VariableUsedReference>
+            <r:Agency>fr.insee</r:Agency>
+            <r:ID>96b307fc-a555-4160-9d83-b6568bb0f274</r:ID>
+            <r:Version>1</r:Version>
+            <r:TypeOfObject>Variable</r:TypeOfObject>
+          </VariableUsedReference>
+        </VariablesInRecord>
+      </LogicalRecord>
+    </DataRelationship>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:51:19.9570944Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:15c84163-b6bd-421d-9c1a-d23c84710fff:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>15c84163-b6bd-421d-9c1a-d23c84710fff</r:ID>
+      <r:Version>1</r:Version>
+      <VariableName>
+        <r:String xml:lang="fr-FR">mois_decl</r:String>
+      </VariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">Date du mois principal déclaré</r:Content>
+      </r:Label>
+      <RepresentedVariableReference>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b5</r:ID>
+        <r:Version>1</r:Version>
+        <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+      </RepresentedVariableReference>
+    </Variable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <RepresentedVariable isUniversallyUnique="true" versionDate="2022-10-20T06:50:25.3237716Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:ffc9117f-cb0b-4d78-9c7f-f97a7c3537b5:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b5</r:ID>
+      <r:Version>1</r:Version>
+      <RepresentedVariableName>
+        <r:String xml:lang="fr-FR">MOIS_DECLARATION</r:String>
+      </RepresentedVariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">mois de la déclaration</r:Content>
+      </r:Label>
+      <r:DateTimeRepresentation blankIsMissingValue="false">
+        <r:DateTypeCode>Date</r:DateTypeCode>
+      </r:DateTimeRepresentation>
+    </RepresentedVariable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:28:20.5666899Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:70f9383e-af65-49c4-9ed0-18eca0579d8e:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>70f9383e-af65-49c4-9ed0-18eca0579d8e</r:ID>
+      <r:Version>1</r:Version>
+      <VariableName>
+        <r:String xml:lang="fr-FR">code_decl</r:String>
+      </VariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">code déclaration</r:Content>
+      </r:Label>
+      <RepresentedVariableReference>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>9bd51af1-dc6e-4db5-bfcb-d6559b2f2cf8</r:ID>
+        <r:Version>1</r:Version>
+        <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+      </RepresentedVariableReference>
+    </Variable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <RepresentedVariable isUniversallyUnique="true" versionDate="2022-10-20T06:28:44.7152578Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:9bd51af1-dc6e-4db5-bfcb-d6559b2f2cf8:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>9bd51af1-dc6e-4db5-bfcb-d6559b2f2cf8</r:ID>
+      <r:Version>1</r:Version>
+      <RepresentedVariableName>
+        <r:String xml:lang="fr-FR">CODE_DECLARATION_PASRAU</r:String>
+      </RepresentedVariableName>
+      <r:CodeRepresentation blankIsMissingValue="false">
+        <r:CodeListReference>
+          <r:Agency>fr.insee</r:Agency>
+          <r:ID>4283cb7f-7df8-4a4c-90ec-eb507f468ef2</r:ID>
+          <r:Version>1</r:Version>
+          <r:TypeOfObject>CodeList</r:TypeOfObject>
+        </r:CodeListReference>
+      </r:CodeRepresentation>
+    </RepresentedVariable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <CodeList isUniversallyUnique="true" versionDate="2022-10-20T06:27:16.8130369Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:4283cb7f-7df8-4a4c-90ec-eb507f468ef2:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>4283cb7f-7df8-4a4c-90ec-eb507f468ef2</r:ID>
+      <r:Version>1</r:Version>
+      <Code isUniversallyUnique="true">
+        <r:URN>urn:ddi:fr.insee:4922c987-090a-48d3-b48c-2729f124ce51:1</r:URN>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>4922c987-090a-48d3-b48c-2729f124ce51</r:ID>
+        <r:Version>1</r:Version>
+        <r:CategoryReference>
+          <r:Agency>fr.insee</r:Agency>
+          <r:ID>e1fb551f-111e-4b44-a8bd-fbbb65662b7b</r:ID>
+          <r:Version>1</r:Version>
+          <r:TypeOfObject>Category</r:TypeOfObject>
+        </r:CategoryReference>
+        <r:Value>11</r:Value>
+      </Code>
+      <Code isUniversallyUnique="true">
+        <r:URN>urn:ddi:fr.insee:79d40712-cf96-4651-92b4-6a45d03cbd6e:1</r:URN>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>79d40712-cf96-4651-92b4-6a45d03cbd6e</r:ID>
+        <r:Version>1</r:Version>
+        <r:CategoryReference>
+          <r:Agency>fr.insee</r:Agency>
+          <r:ID>e238ac08-f7b9-4003-83df-a3686b1fc4ff</r:ID>
+          <r:Version>1</r:Version>
+          <r:TypeOfObject>Category</r:TypeOfObject>
+        </r:CategoryReference>
+        <r:Value>14</r:Value>
+      </Code>
+    </CodeList>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Category isUniversallyUnique="true" versionDate="2022-10-20T06:27:16.8130369Z" isMissing="false" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:e1fb551f-111e-4b44-a8bd-fbbb65662b7b:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>e1fb551f-111e-4b44-a8bd-fbbb65662b7b</r:ID>
+      <r:Version>1</r:Version>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">Message transitoire fonction publique</r:Content>
+      </r:Label>
+    </Category>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Category isUniversallyUnique="true" versionDate="2022-10-20T06:27:16.8130369Z" isMissing="false" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:e238ac08-f7b9-4003-83df-a3686b1fc4ff:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>e238ac08-f7b9-4003-83df-a3686b1fc4ff</r:ID>
+      <r:Version>1</r:Version>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">Message mensuel des revenus autres</r:Content>
+      </r:Label>
+    </Category>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:21:09.0596061Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:7a43177f-df43-48b1-9603-259340e92696:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>7a43177f-df43-48b1-9603-259340e92696</r:ID>
+      <r:Version>1</r:Version>
+      <VariableName>
+        <r:String xml:lang="fr-FR">id_mad_etab</r:String>
+      </VariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">identifiant de l'établissement dans la source</r:Content>
+      </r:Label>
+      <RepresentedVariableReference>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>5e186ebd-1b6b-4bad-a22b-1d7812a9a861</r:ID>
+        <r:Version>1</r:Version>
+        <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+      </RepresentedVariableReference>
+    </Variable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <RepresentedVariable isUniversallyUnique="true" versionDate="2023-01-26T10:35:46.3813866Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:5e186ebd-1b6b-4bad-a22b-1d7812a9a861:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>5e186ebd-1b6b-4bad-a22b-1d7812a9a861</r:ID>
+      <r:Version>1</r:Version>
+      <RepresentedVariableName>
+        <r:String xml:lang="fr-FR">IDENTIFIANT_TABLE</r:String>
+      </RepresentedVariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">identifiant dans la table</r:Content>
+      </r:Label>
+      <r:Description>
+        <r:Content xml:lang="fr-FR">permet la jointure entre les tables ARC</r:Content>
+      </r:Description>
+      <r:NumericRepresentation blankIsMissingValue="false">
+        <r:NumberRange>
+          <r:Low isInclusive="false">1</r:Low>
+          <r:High isInclusive="false">9999999999999999999999999999</r:High>
+        </r:NumberRange>
+        <r:NumericTypeCode>Integer</r:NumericTypeCode>
+      </r:NumericRepresentation>
+    </RepresentedVariable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Variable isUniversallyUnique="true" versionDate="2022-10-20T07:01:58.3273952Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:1aba9327-485e-4e97-8ede-b375c8f3b76b:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>1aba9327-485e-4e97-8ede-b375c8f3b76b</r:ID>
+      <r:Version>1</r:Version>
+      <VariableName>
+        <r:String xml:lang="fr-FR">siren</r:String>
+      </VariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">Numéro siren de l'établissement</r:Content>
+      </r:Label>
+      <RepresentedVariableReference>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>51d1f4e8-5936-4390-ab09-056c6c7a6a3e</r:ID>
+        <r:Version>1</r:Version>
+        <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+      </RepresentedVariableReference>
+    </Variable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <RepresentedVariable isUniversallyUnique="true" versionDate="2023-01-12T13:45:35.6248498Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:51d1f4e8-5936-4390-ab09-056c6c7a6a3e:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>51d1f4e8-5936-4390-ab09-056c6c7a6a3e</r:ID>
+      <r:Version>1</r:Version>
+      <RepresentedVariableName>
+        <r:String xml:lang="fr-FR">SIREN</r:String>
+      </RepresentedVariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">code siren de l'entreprise</r:Content>
+      </r:Label>
+      <r:TextRepresentation blankIsMissingValue="false" maxLength="9" minLength="9" regExp="[0-9]*[1-9][0-9]*" />
+    </RepresentedVariable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:57:31.6528065Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:96b307fc-a555-4160-9d83-b6568bb0f274:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>96b307fc-a555-4160-9d83-b6568bb0f274</r:ID>
+      <r:Version>1</r:Version>
+      <VariableName>
+        <r:String xml:lang="fr-FR">raison_soc</r:String>
+      </VariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">raison sociale de l'entreprise</r:Content>
+      </r:Label>
+      <RepresentedVariableReference>
+        <r:Agency>fr.insee</r:Agency>
+        <r:ID>92f97f38-020d-4a71-a411-104edd87496d</r:ID>
+        <r:Version>1</r:Version>
+        <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
+      </RepresentedVariableReference>
+    </Variable>
+  </ddi:Fragment>
+  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+    <RepresentedVariable isUniversallyUnique="true" versionDate="2023-01-26T10:39:32.4658257Z" xmlns="ddi:logicalproduct:3_2">
+      <r:URN>urn:ddi:fr.insee:92f97f38-020d-4a71-a411-104edd87496d:1</r:URN>
+      <r:Agency>fr.insee</r:Agency>
+      <r:ID>92f97f38-020d-4a71-a411-104edd87496d</r:ID>
+      <r:Version>1</r:Version>
+      <RepresentedVariableName>
+        <r:String xml:lang="fr-FR">RAISON_SOCIALE</r:String>
+      </RepresentedVariableName>
+      <r:Label>
+        <r:Content xml:lang="fr-FR">Raison sociale de la personne morale</r:Content>
+      </r:Label>
+      <r:TextRepresentation blankIsMissingValue="false" maxLength="1000" minLength="1" />
+    </RepresentedVariable>
+  </ddi:Fragment>
+</ddi:FragmentInstance>

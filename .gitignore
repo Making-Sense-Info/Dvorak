@@ -1,0 +1,4 @@
+# Ignore Java libraries
+lib/
+# Ignore output files
+target/

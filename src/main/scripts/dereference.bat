@@ -1,0 +1,1 @@
+java  -jar ../../../lib/saxon-he-12.0.jar -o:"../../../target/dereferenced.xml" -s:"../../test/ddi/physicalInstance-test.xml" -xsl:"../main/xslt/dereference.xsl"

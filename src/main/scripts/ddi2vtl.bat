@@ -1,0 +1,1 @@
+java  -jar ../../../lib/saxon-he-11.4.jar -o:"../../../target/vtl.txt" -s:"../../../target/dereferenced.xml" -xsl:"../xslt/ddi2vtl.xsl"

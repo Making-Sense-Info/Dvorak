@@ -17,7 +17,9 @@ cd src/main/scripts
 dereference
 ```
 
-The result will be in `/target/dereferenced.xml`
+The result will be in `/target/dereferenced.xml`.
 
-See https://www.saxonica.com/documentation12/index.html#!using-xsl/commandline for all the options available.
+Similarly, the `ddi2vtl` can be executed after `dereference` and will produce `/target/vtl.txt`.
+
+See all available command line options in the [Saxon documentation](https://www.saxonica.com/documentation11/index.html#!using-xsl/commandline).
 

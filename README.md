@@ -1,21 +1,23 @@
-# Dvorak
+# Dvořák
 
 DDI to VTL exploratory work
 
 ## Install
 
 . clone the repository
-. create a `/lib` folder and a `/target` folder
-. extract `saxon-he-12.0.jar` from [GitHub](https://github.com/Saxonica/Saxon-HE/blob/main/12/Java/SaxonHE12-0J.zip) and place it in `/lib`
+. create a `/lib` folder and a `/target` folder, where `/` is the Git repository root
+. donwload Saxon HE 11.4 from [GitHub](https://github.com/Saxonica/Saxon-HE/blob/main/11/Java/SaxonHE11-4J.zip) and extract all files in `/lib`
 
 ## Usage
 
 ### From the command line
 
 ```
-cd src/main/script
+cd src/main/scripts
 dereference
 ```
 
-See https://www.saxonica.com/documentation12/index.html#!using-xsl/commandline
+The result will be in `/target/dereferenced.xml`
+
+See https://www.saxonica.com/documentation12/index.html#!using-xsl/commandline for all the options available.
 

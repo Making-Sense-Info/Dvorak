@@ -31,7 +31,7 @@
     <xsl:template match="r:CodeRepresentation">
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
-I'm a CodeRepresentation
+// CodeRepresentation
 ds_r := <xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/> in 
         {"<xsl:value-of select="string-join(.//l:Code/r:Value, '&quot;,&quot;')"/>"}; 
     </xsl:template>
@@ -39,18 +39,19 @@ ds_r := <xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/>
     <xsl:template match="r:TextRepresentation">
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
-TextRepresentation
+// TextRepresentation
         <xsl:choose>
             <xsl:when test="@minLength and @maxLength">
 ds_r := check(between(length(<xsl:value-of select="$dataset"
                 />#<xsl:value-of select="$variableName"/>), <xsl:value-of
                     select="@minLength"/>, <xsl:value-of select="@maxLength"/>));
             </xsl:when>
-            <xsl:otherwise> So what? </xsl:otherwise> 
+            <xsl:otherwise>//So what? </xsl:otherwise> 
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="@regExp"> 
-RegExp <xsl:value-of select="@regExp"/>;
+// RegExp: To be implemented 
+                <xsl:value-of select="@regExp"/>;
             </xsl:when> 
         </xsl:choose>
 
@@ -59,18 +60,18 @@ RegExp <xsl:value-of select="@regExp"/>;
     <xsl:template match="r:NumericTypeCode[text() = 'Integer']">
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
-NumericRepresentation
+// NumericRepresentation: Integer
 ds_r := check(between(cast(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/>, integer), <xsl:value-of
             select="//r:NumberRange/r:Low"/>, <xsl:value-of select="//r:NumberRange/r:High"/>));
     </xsl:template>
     
 
     <xsl:template match="r:DateTypeCode[text() = 'Year']"> 
-I'm a DateTimeRepresentation,
-DateTypeCode = Year </xsl:template>
+// DateTimeRepresentation: Year
+    </xsl:template>
 
     <xsl:template match="r:DateTypeCode[text() = 'Date']"> 
-I'm a DateTimeRepresentation,
-DateTypeCode = Date </xsl:template>
+// DateTimeRepresentation: Date
+    </xsl:template>
 
 </xsl:stylesheet>

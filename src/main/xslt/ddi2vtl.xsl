@@ -46,12 +46,13 @@ ds_r := check(between(length(<xsl:value-of select="$dataset"
                 />#<xsl:value-of select="$variableName"/>), <xsl:value-of
                     select="@minLength"/>, <xsl:value-of select="@maxLength"/>));
             </xsl:when>
-            <xsl:otherwise>//So what? </xsl:otherwise> 
+            <xsl:otherwise>ds_r :=//So what? </xsl:otherwise> 
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="@regExp"> 
 // RegExp: To be implemented 
-                <xsl:value-of select="@regExp"/>;
+ds_r := check(match_characters(<xsl:value-of select="$dataset"
+                />#<xsl:value-of select="$variableName"/>, "<xsl:value-of select="@regExp"/>"));
             </xsl:when> 
         </xsl:choose>
 

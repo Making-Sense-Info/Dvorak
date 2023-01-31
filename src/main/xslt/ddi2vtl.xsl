@@ -32,8 +32,8 @@
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
 // CodeRepresentation
-ds_r := <xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/> in 
-        {"<xsl:value-of select="string-join(.//l:Code/r:Value, '&quot;,&quot;')"/>"}; 
+ds_r := check(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/> in 
+        {"<xsl:value-of select="string-join(.//l:Code/r:Value, '&quot;,&quot;')"/>"} errorcode("Invalid value") invalid); 
     </xsl:template>
 
     <xsl:template match="r:TextRepresentation">
@@ -63,7 +63,7 @@ ds_r := check(match_characters(<xsl:value-of select="$dataset"
         <xsl:param name="variableName"></xsl:param>
 // NumericRepresentation: Integer
 ds_r := check(between(cast(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/>, integer), <xsl:value-of
-            select="//r:NumberRange/r:Low"/>, <xsl:value-of select="//r:NumberRange/r:High"/>));
+            select="//r:NumberRange/r:Low"/>, <xsl:value-of select="//r:NumberRange/r:High"/>) errorcode("Invalid number") invalid);
     </xsl:template>
     
 

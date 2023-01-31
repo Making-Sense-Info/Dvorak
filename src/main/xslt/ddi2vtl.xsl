@@ -22,7 +22,7 @@
         <xsl:param name="dataset" select="ancestor::l:LogicalRecord/l:LogicalRecordName/r:String"></xsl:param>
         <xsl:param name="variableName" select="l:VariableName/r:String"></xsl:param>
         <xsl:apply-templates
-            select="l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation">
+            select="l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode">
             <xsl:with-param name="dataset" select="$dataset"></xsl:with-param>
             <xsl:with-param name="variableName" select="$variableName"></xsl:with-param>
         </xsl:apply-templates>        
@@ -32,7 +32,8 @@
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
 I'm a CodeRepresentation
-ds_r := <xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/> in {<xsl:value-of select="string-join(.//l:Code/r:Value, ', ')"/>}
+ds_r := <xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/> in 
+        {"<xsl:value-of select="string-join(.//l:Code/r:Value, '&quot;,&quot;')"/>"}; 
     </xsl:template>
 
     <xsl:template match="r:TextRepresentation">
@@ -43,25 +44,26 @@ TextRepresentation
             <xsl:when test="@minLength and @maxLength">
 ds_r := check(between(length(<xsl:value-of select="$dataset"
                 />#<xsl:value-of select="$variableName"/>), <xsl:value-of
-                    select="@minLength"/>, <xsl:value-of select="@maxLength"/>))
+                    select="@minLength"/>, <xsl:value-of select="@maxLength"/>));
             </xsl:when>
             <xsl:otherwise> So what? </xsl:otherwise> 
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="@regExp"> 
-RegExp <xsl:value-of select="@regExp"/>
+RegExp <xsl:value-of select="@regExp"/>;
             </xsl:when> 
         </xsl:choose>
+
     </xsl:template>
 
-    <xsl:template match="r:NumericRepresentation">
+    <xsl:template match="r:NumericTypeCode[text() = 'Integer']">
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
 NumericRepresentation
-ds_r := check(between(length(<xsl:value-of select="$dataset"
-        />#<xsl:value-of select="$variableName"/>), <xsl:value-of
-            select="r:NumberRange/r:Low"/>, <xsl:value-of select="r:NumberRange/r:High"/>))
+ds_r := check(between(cast(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/>, integer), <xsl:value-of
+            select="//r:NumberRange/r:Low"/>, <xsl:value-of select="//r:NumberRange/r:High"/>));
     </xsl:template>
+    
 
     <xsl:template match="r:DateTypeCode[text() = 'Year']"> 
 I'm a DateTimeRepresentation,

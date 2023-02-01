@@ -244,7 +244,7 @@
       <r:NumericRepresentation blankIsMissingValue="false">
         <r:NumberRange>
           <r:Low isInclusive="false">1</r:Low>
-          <r:High isInclusive="false">9999999999999999999999999999</r:High>
+          <r:High isInclusive="false">9999999999999</r:High>
         </r:NumberRange>
         <r:NumericTypeCode>Integer</r:NumericTypeCode>
       </r:NumericRepresentation>

@@ -13,8 +13,10 @@
     </xsl:template>
 
     <xsl:template match="l:LogicalRecord">
-         <xsl:variable name="dataset" select="concat(l:LogicalRecordName/r:String, '_eval')"></xsl:variable>
-        <xsl:value-of select="concat($dataset, ' := input_table', ';')"/>
+        <xsl:variable name="dataset" select="concat(l:LogicalRecordName/r:String, '_eval')"></xsl:variable>
+        <!-- Keep only variable to be checked: for testing purpose -->
+        <xsl:variable name="keep" select="concat('keep ', string-join(l:VariablesInRecord/l:Variable/l:VariableName/r:String, ', '))"></xsl:variable>
+        <xsl:value-of select="concat($dataset, ' := input_table[', $keep,  '];')"/>
         <xsl:apply-templates select="l:VariablesInRecord/l:Variable">
             <xsl:with-param name="dataset" select="$dataset"></xsl:with-param>
         </xsl:apply-templates>

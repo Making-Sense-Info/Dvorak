@@ -13,18 +13,20 @@
     </xsl:template>
 
     <xsl:template match="l:LogicalRecord">
+         <xsl:variable name="dataset" select="concat(l:LogicalRecordName/r:String, '_eval')"></xsl:variable>
+        <xsl:value-of select="concat($dataset, ' := input_table', ';')"/>
         <xsl:apply-templates select="l:VariablesInRecord/l:Variable">
+            <xsl:with-param name="dataset" select="$dataset"></xsl:with-param>
         </xsl:apply-templates>
 
     </xsl:template>
 
     <xsl:template match="l:Variable">
-        <xsl:param name="dataset" select="ancestor::l:LogicalRecord/l:LogicalRecordName/r:String"></xsl:param>
-        <xsl:param name="variableName" select="l:VariableName/r:String"></xsl:param>
+        <xsl:param name="dataset"/>
         <xsl:apply-templates
             select="l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode">
             <xsl:with-param name="dataset" select="$dataset"></xsl:with-param>
-            <xsl:with-param name="variableName" select="$variableName"></xsl:with-param>
+            <xsl:with-param name="variableName" select="l:VariableName/r:String"></xsl:with-param>
         </xsl:apply-templates>        
     </xsl:template>
 
@@ -32,8 +34,7 @@
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
 // CodeRepresentation
-ds_r := check(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/> in 
-        {"<xsl:value-of select="string-join(.//l:Code/r:Value, '&quot;,&quot;')"/>"} errorcode("Invalid value") invalid); 
+        <xsl:value-of select="concat($dataset, ' := ', $dataset, '[calc ', $variableName,'_eval', ' := ', $variableName, ' in {&quot;', string-join(.//l:Code/r:Value, '&quot;,&quot;'),'&quot;}];')"/>
     </xsl:template>
 
     <xsl:template match="r:TextRepresentation">
@@ -42,17 +43,14 @@ ds_r := check(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableN
 // TextRepresentation
         <xsl:choose>
             <xsl:when test="@minLength and @maxLength">
-ds_r := check(between(length(<xsl:value-of select="$dataset"
-                />#<xsl:value-of select="$variableName"/>), <xsl:value-of
-                    select="@minLength"/>, <xsl:value-of select="@maxLength"/>));
+                <xsl:value-of select="concat($dataset, ' := ', $dataset, '[calc ', $variableName,'_eval', ' := between(length(', $variableName, '),',@minLength,',', @maxLength,')];' )"/>
             </xsl:when>
-            <xsl:otherwise>ds_r :=//So what? </xsl:otherwise> 
+            <xsl:otherwise>//So what? </xsl:otherwise> 
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="@regExp"> 
-// RegExp: To be implemented 
-ds_r := check(match_characters(<xsl:value-of select="$dataset"
-                />#<xsl:value-of select="$variableName"/>, "<xsl:value-of select="@regExp"/>"));
+// RegExp
+                <xsl:value-of select="concat($dataset, ' := ', $dataset, '[calc ', $variableName,'_eval_regexp', ' := match_characters(', $variableName, ', &quot;',@regExp, '&quot;)];')"/>
             </xsl:when> 
         </xsl:choose>
 
@@ -62,8 +60,7 @@ ds_r := check(match_characters(<xsl:value-of select="$dataset"
         <xsl:param name="dataset"></xsl:param>
         <xsl:param name="variableName"></xsl:param>
 // NumericRepresentation: Integer
-ds_r := check(between(cast(<xsl:value-of select="$dataset"/>#<xsl:value-of select="$variableName"/>, integer), <xsl:value-of
-            select="//r:NumberRange/r:Low"/>, <xsl:value-of select="//r:NumberRange/r:High"/>) errorcode("Invalid number") invalid);
+        <xsl:value-of select="concat($dataset, ' := ', $dataset, '[calc ', $variableName,'_eval', ' := between(cast(', $variableName, ', number), ', //r:NumberRange/r:Low,', ', //r:NumberRange/r:High, ')];')" />
     </xsl:template>
     
 

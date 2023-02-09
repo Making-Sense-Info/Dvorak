@@ -33,7 +33,7 @@
     <!-- Template for Variable wiht VariableName as param. One different template called per type of representation  -->
     <xsl:template match="l:Variable">
         <xsl:apply-templates
-            select="l:VariableRepresentation/r:CodeRepresentation | l:VariableRepresentation/r:DateTimeRepresentation/r:DateTypeCode | l:VariableRepresentation/r:TextRepresentation | l:VariableRepresentation/r:NumericRepresentation/r:NumericTypeCode">
+            select="l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode">
             <xsl:with-param name="variableName" select="l:VariableName/r:String"/>
         </xsl:apply-templates>
         <!-- Last rule does not finished with a semicolon. This pattern does not work if one variable does not generate one rule (i.e: representation integer without min or max)  -->

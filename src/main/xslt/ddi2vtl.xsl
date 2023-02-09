@@ -5,6 +5,8 @@
     xmlns:p="http://purl.org/dc/elements/1.1/" exclude-result-prefixes="#all" version="2.0">
 
     <xsl:output method="text" indent="no" media-type="text/plain" encoding="UTF-8"/>
+    <!-- l:RepresentedVariable or l:VariableRepresentation: How to pass a variable in XPATH expression? -->
+    <xsl:variable name="representation" select="'l:VariableRepresentation'"></xsl:variable>
 
     <xsl:template match="/">
         <!-- Browse each logicalRecord for defining one datapoint ruleset per LogicalRecord -->
@@ -31,7 +33,7 @@
     <!-- Template for Variable wiht VariableName as param. One different template called per type of representation  -->
     <xsl:template match="l:Variable">
         <xsl:apply-templates
-            select="l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode">
+            select="l:VariableRepresentation/r:CodeRepresentation | l:VariableRepresentation/r:DateTimeRepresentation/r:DateTypeCode | l:VariableRepresentation/r:TextRepresentation | l:VariableRepresentation/r:NumericRepresentation/r:NumericTypeCode">
             <xsl:with-param name="variableName" select="l:VariableName/r:String"/>
         </xsl:apply-templates>
         <!-- Last rule does not finished with a semicolon. This pattern does not work if one variable does not generate one rule (i.e: representation integer without min or max)  -->
@@ -71,6 +73,13 @@
         <xsl:param name="variableName"/>
         <xsl:value-of
             select="concat('&#xA;between(cast(', $variableName, ', integer), ', //r:NumberRange/r:Low, ', ', //r:NumberRange/r:High, ')')"
+        />
+    </xsl:template>
+    
+    <xsl:template match="r:NumericTypeCode[text() = 'Double']">
+        <xsl:param name="variableName"/>
+        <xsl:value-of
+            select="concat('&#xA;between(cast(', $variableName, ', number), ', //r:NumberRange/r:Low, ', ', //r:NumberRange/r:High, ')')"
         />
     </xsl:template>
 

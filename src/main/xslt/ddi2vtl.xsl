@@ -7,11 +7,15 @@
     <xsl:output method="text" indent="no" media-type="text/plain" encoding="UTF-8"/>
 
     <xsl:template match="/">
+        <!-- Browse each logicalRecord for defining one datapoint ruleset per LogicalRecord -->
         <xsl:for-each select="//l:LogicalRecord">
             <xsl:variable name="dataset" select="l:LogicalRecordName/r:String"/>
-            <xsl:value-of select="concat($dataset, ' := input_table;', '&#xA;')"/>
+            <xsl:value-of select="concat($dataset, ' := input_table;')"/>
+            <!-- Define datapoint ruleset with a signature including all variables in the LogicalRecord. The rule signature should be changed if each variable does not produce one rule
+             -->
             <xsl:value-of
-                select="concat('define datapoint ruleset dpr_', $dataset, ' (variable ', string-join(l:VariablesInRecord/l:Variable/l:VariableName/r:String, ', '), ') is')"/>
+                select="concat('&#xA;define datapoint ruleset dpr_', $dataset, ' (variable ', string-join(l:VariablesInRecord/l:Variable/l:VariableName/r:String, ', '), ') is')"/>
+            <!-- Apply template for defining one rule per variable in the LogicalRecord -->
             <xsl:apply-templates select="."> </xsl:apply-templates>
             <xsl:value-of
                 select="concat('&#xA;ds_eval_', $dataset, ' := check_datapoint(', $dataset, ', dpr_', $dataset, ');')"
@@ -24,11 +28,13 @@
         <xsl:text>&#xA;end datapoint ruleset;</xsl:text>
     </xsl:template>
 
+    <!-- Template for Variable wiht VariableName as param. One different template called per type of representation  -->
     <xsl:template match="l:Variable">
         <xsl:apply-templates
             select="l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode">
             <xsl:with-param name="variableName" select="l:VariableName/r:String"/>
         </xsl:apply-templates>
+        <!-- Last rule does not finished with a semicolon. This pattern does not work if one variable does not generate one rule (i.e: representation integer without min or max)  -->
         <xsl:if test="position() != last()">
             <xsl:value-of>;</xsl:value-of>
         </xsl:if>
@@ -43,19 +49,21 @@
 
     <xsl:template match="r:TextRepresentation">
         <xsl:param name="variableName"/>
+        <!-- Shoud be improved because variable created even if regExp is not filled -->
+        <xsl:variable name="matchCharacters" select="concat('match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"/>
+        <!-- Create one vtl rule (between) if min and max lengths filled -->
         <xsl:if test="@minLength and @maxLength">
             <xsl:value-of
                 select="concat('&#xA;between(length(', $variableName, '),', @minLength, ',', @maxLength, ')')"/>
             <xsl:if test="@regExp">
                 <xsl:value-of
-                    select="concat(' and match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"
+                    select="concat(' and ', $matchCharacters)"
                 />
             </xsl:if>
         </xsl:if>
+        <!-- Create one rule if regExp filled -->
         <xsl:if test="not(@minLength or @maxLength) and @regExp">
-            <xsl:value-of
-                select="concat('&#xA;match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"
-            />
+            <xsl:value-of select="concat('&#xA;', $matchCharacters)"/>
         </xsl:if>
     </xsl:template>
 
@@ -70,8 +78,9 @@
 
     <xsl:template match="r:DateTypeCode[text() = 'Date']">
         <xsl:param name="variableName"/>
-            <xsl:value-of
-                select="concat('&#xA;match_characters(', $variableName, ', &quot;', '^\d{4}-(((0)[0-9])|((1)[0-2]))-([0-2][0-9]|(3)[0-1])$', '&quot;)')"/>
+        <xsl:value-of
+            select="concat('&#xA;match_characters(', $variableName, ', &quot;', '^\d{4}-(((0)[0-9])|((1)[0-2]))-([0-2][0-9]|(3)[0-1])$', '&quot;)')"
+        />
     </xsl:template>
 
 </xsl:stylesheet>

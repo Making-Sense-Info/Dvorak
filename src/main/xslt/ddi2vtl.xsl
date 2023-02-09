@@ -62,12 +62,16 @@
     <xsl:template match="r:NumericTypeCode[text() = 'Integer']">
         <xsl:param name="variableName"/>
         <xsl:value-of
-            select="concat('&#xA;between(cast(', $variableName, ', number), ', //r:NumberRange/r:Low, ', ', //r:NumberRange/r:High, ')')"
+            select="concat('&#xA;between(cast(', $variableName, ', integer), ', //r:NumberRange/r:Low, ', ', //r:NumberRange/r:High, ')')"
         />
     </xsl:template>
 
     <xsl:template match="r:DateTypeCode[text() = 'Year']"> </xsl:template>
 
-    <xsl:template match="r:DateTypeCode[text() = 'Date']"> // DateTimeRepresentation: Date </xsl:template>
+    <xsl:template match="r:DateTypeCode[text() = 'Date']">
+        <xsl:param name="variableName"/>
+            <xsl:value-of
+                select="concat('&#xA;match_characters(', $variableName, ', &quot;', 'YYYY-MM-DD', '&quot;)')"/>
+    </xsl:template>
 
 </xsl:stylesheet>

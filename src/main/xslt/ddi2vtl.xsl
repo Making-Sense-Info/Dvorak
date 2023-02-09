@@ -71,7 +71,7 @@
     <xsl:template match="r:DateTypeCode[text() = 'Date']">
         <xsl:param name="variableName"/>
             <xsl:value-of
-                select="concat('&#xA;match_characters(', $variableName, ', &quot;', 'YYYY-MM-DD', '&quot;)')"/>
+                select="concat('&#xA;match_characters(', $variableName, ', &quot;', '^\d{4}-(((0)[0-9])|((1)[0-2]))-([0-2][0-9]|(3)[0-1])$', '&quot;)')"/>
     </xsl:template>
 
 </xsl:stylesheet>

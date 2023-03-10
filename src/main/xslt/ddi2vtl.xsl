@@ -12,7 +12,7 @@
         <!-- Browse each logicalRecord for defining one datapoint ruleset per LogicalRecord -->
         <xsl:for-each select="//l:LogicalRecord">
             <xsl:variable name="dataset" select="l:LogicalRecordName/r:String"/>
-            <xsl:value-of select="concat($dataset, ' := input_table;')"/>
+            <xsl:value-of select="concat('&#xA;', $dataset, ' := input_table;')"/>
             <!-- Define datapoint ruleset with a signature including all variables in the LogicalRecord. The rule signature should be changed if each variable does not produce one rule
              -->
             <xsl:value-of
@@ -81,12 +81,12 @@
             <!-- Create one vtl rule (between) if min and max lengths filled -->
             <xsl:when test="@minLength and @maxLength and not(@regExp)">
                 <xsl:value-of
-                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '),', @minLength, ',', @maxLength, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '), ', @minLength, ', ', @maxLength, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
                 />
             </xsl:when>
             <xsl:when test="@minLength and @maxLength and @regExp">
                 <xsl:value-of
-                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '),', @minLength, ',', @maxLength, ')', ' and ', $matchCharacters, ' errorcode &quot;Value not included between min and max or not matched with regular expression&quot;', $semicolon)"
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '), ', @minLength, ', ', @maxLength, ')', ' and ', $matchCharacters, ' errorcode &quot;Value not included between min and max or not matched with regular expression&quot;', $semicolon)"
                 />
             </xsl:when>
             <!-- Create one rule if regExp filled -->
@@ -130,15 +130,17 @@
 
     <xsl:template match="r:DateTypeCode[text() = 'Year']">
         <xsl:param name="variableName"/>
+        <xsl:param name="semicolon"/>
         <xsl:value-of
-            select="concat('&#xA;', '// ', 'Reprensentation Year not yet supported for variable: ', $variableName)"
+            select="concat('&#xA;', 'rule_', $variableName, ' : ', 'match_characters(', $variableName, ', &quot;', '^\d{4}$', '&quot;)', ' errorcode &quot;Date format YYYY not valid&quot;', $semicolon)"
         />
     </xsl:template>
 
     <xsl:template match="r:DateTypeCode[text() = 'YearMonth']">
         <xsl:param name="variableName"/>
+        <xsl:param name="semicolon"/>
         <xsl:value-of
-            select="concat('&#xA;', '// ', 'Reprensentation YearMonth not yet supported for variable: ', $variableName)"
+            select="concat('&#xA;', 'rule_', $variableName, ' : ', 'match_characters(', $variableName, ', &quot;', '^\d{4}-(((0)[0-9])|((1)[0-2]))$', '&quot;)', ' errorcode &quot;Date format YYYY-MM-DD not valid&quot;', $semicolon)"
         />
     </xsl:template>
 

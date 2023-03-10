@@ -62,8 +62,11 @@
         <xsl:param name="variableName"/>
         <xsl:param name="semicolon"/>
         <!-- Shoud be improved because variable created even if regExp is not filled -->
-        <xsl:variable name="matchCharacters"
-            select="concat('match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"/>
+        <xsl:variable name="matchCharacters">
+            <xsl:if test="@regExp">
+                <xsl:value-of select="concat('match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"/>
+            </xsl:if>
+        </xsl:variable>
         <!-- Create one vtl rule (between) if min and max lengths filled -->
         <xsl:if test="@minLength and @maxLength and not(@regExp)">
             <xsl:value-of

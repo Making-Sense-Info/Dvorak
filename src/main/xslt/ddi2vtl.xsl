@@ -53,9 +53,17 @@
     <xsl:template match="r:CodeRepresentation">
         <xsl:param name="variableName"/>
         <xsl:param name="semicolon"/>
-        <xsl:value-of
-            select="concat('&#xA;', 'rule_', $variableName, ' : ', $variableName, ' in {&quot;', string-join(.//l:Code/r:Value, '&quot;,&quot;'), '&quot;}', ' errorcode &quot;Code value not valid&quot;', $semicolon)"
-        />
+        <xsl:choose>
+            <xsl:when test=".//l:Code/r:Value">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', $variableName, ' in {&quot;', string-join(.//l:Code/r:Value, '&quot;,&quot;'), '&quot;}', ' errorcode &quot;Code value not valid&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of
+                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="r:TextRepresentation">
@@ -89,7 +97,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of
-                    select="concat('// ', 'Incomplete metadata for variable: ', $variableName)"/>
+                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -105,7 +113,8 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of
-                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"/>
+                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"
+                />
             </xsl:otherwise>
 
         </xsl:choose>
@@ -119,14 +128,18 @@
         />
     </xsl:template>
 
-    <xsl:template match="r:DateTypeCode[text() = 'Year']"> 
+    <xsl:template match="r:DateTypeCode[text() = 'Year']">
         <xsl:param name="variableName"/>
-        <xsl:value-of select="concat('&#xA;', '// ', 'Reprensentation Year not supported yet for variable: ', $variableName)"/>
+        <xsl:value-of
+            select="concat('&#xA;', '// ', 'Reprensentation Year not yet supported for variable: ', $variableName)"
+        />
     </xsl:template>
-    
+
     <xsl:template match="r:DateTypeCode[text() = 'YearMonth']">
         <xsl:param name="variableName"/>
-        <xsl:value-of select="concat('&#xA;', '// ', 'Reprensentation YearMonth not supported yet for variable: ', $variableName)"/>
+        <xsl:value-of
+            select="concat('&#xA;', '// ', 'Reprensentation YearMonth not yet supported for variable: ', $variableName)"
+        />
     </xsl:template>
 
     <xsl:template match="r:DateTypeCode[text() = 'Date']">

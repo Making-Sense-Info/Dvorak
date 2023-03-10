@@ -43,10 +43,10 @@
             <xsl:if test="position() != last()">
                 <xsl:value-of select="';'"/>
             </xsl:if>
-        </xsl:variable>       
+        </xsl:variable>
         <xsl:apply-templates select="$expression">
             <xsl:with-param name="variableName" select="l:VariableName/r:String"/>
-            <xsl:with-param name="semicolon" select="$semicolon"></xsl:with-param>
+            <xsl:with-param name="semicolon" select="$semicolon"/>
         </xsl:apply-templates>
     </xsl:template>
 
@@ -64,34 +64,51 @@
         <!-- Shoud be improved because variable created even if regExp is not filled -->
         <xsl:variable name="matchCharacters">
             <xsl:if test="@regExp">
-                <xsl:value-of select="concat('match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"/>
+                <xsl:value-of
+                    select="concat('match_characters(', $variableName, ', &quot;', @regExp, '&quot;)')"
+                />
             </xsl:if>
         </xsl:variable>
-        <!-- Create one vtl rule (between) if min and max lengths filled -->
-        <xsl:if test="@minLength and @maxLength and not(@regExp)">
-            <xsl:value-of
-                select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '),', @minLength, ',', @maxLength, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
-            />
-        </xsl:if>
-        <xsl:if test="@minLength and @maxLength and @regExp">
-            <xsl:value-of
-                select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '),', @minLength, ',', @maxLength, ')', ' and ', $matchCharacters, ' errorcode &quot;Value not included between min and max or not matched with regular expression&quot;', $semicolon)"
-            />
-        </xsl:if>
-        <!-- Create one rule if regExp filled -->
-        <xsl:if test="not(@minLength or @maxLength) and @regExp">
-            <xsl:value-of
-                select="concat('&#xA;', 'rule_', $variableName, ' : ', $matchCharacters, ' errorcode &quot;Value not matched with regular expression&quot;', $semicolon)"
-            />
-        </xsl:if>
+        <xsl:choose>
+            <!-- Create one vtl rule (between) if min and max lengths filled -->
+            <xsl:when test="@minLength and @maxLength and not(@regExp)">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '),', @minLength, ',', @maxLength, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:when test="@minLength and @maxLength and @regExp">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '),', @minLength, ',', @maxLength, ')', ' and ', $matchCharacters, ' errorcode &quot;Value not included between min and max or not matched with regular expression&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <!-- Create one rule if regExp filled -->
+            <xsl:when test="not(@minLength or @maxLength) and @regExp">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', $matchCharacters, ' errorcode &quot;Value not matched with regular expression&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of
+                    select="concat('// ', 'Incomplete metadata for variable: ', $variableName)"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="r:NumericTypeCode[text() = 'Integer']">
         <xsl:param name="variableName"/>
         <xsl:param name="semicolon"/>
-        <xsl:value-of
-            select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', //r:NumberRange/r:Low, ', ', //r:NumberRange/r:High, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
-        />
+        <xsl:choose>
+            <xsl:when test=".//r:NumberRange/r:Low and .//r:NumberRange/r:High">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', .//r:NumberRange/r:Low, ', ', .//r:NumberRange/r:High, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of
+                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"/>
+            </xsl:otherwise>
+
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="r:NumericTypeCode[text() = 'Double']">
@@ -102,7 +119,15 @@
         />
     </xsl:template>
 
-    <xsl:template match="r:DateTypeCode[text() = 'Year']"> </xsl:template>
+    <xsl:template match="r:DateTypeCode[text() = 'Year']"> 
+        <xsl:param name="variableName"/>
+        <xsl:value-of select="concat('&#xA;', '// ', 'Reprensentation Year not supported yet for variable: ', $variableName)"/>
+    </xsl:template>
+    
+    <xsl:template match="r:DateTypeCode[text() = 'YearMonth']">
+        <xsl:param name="variableName"/>
+        <xsl:value-of select="concat('&#xA;', '// ', 'Reprensentation YearMonth not supported yet for variable: ', $variableName)"/>
+    </xsl:template>
 
     <xsl:template match="r:DateTypeCode[text() = 'Date']">
         <xsl:param name="variableName"/>

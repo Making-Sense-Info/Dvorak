@@ -8,21 +8,28 @@
     <!-- l:RepresentedVariable or l:VariableRepresentation: How to pass a variable in XPATH expression? -->
     <!-- <xsl:variable name="representation">l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode</xsl:variable> -->
     <xsl:variable name="representation" select="'l:RepresentedVariable'"/>
+    <!-- <xsl:variable name="representation" select="'l:VariableRepresentation'"/> -->
     <xsl:template match="/">
         <!-- Browse each logicalRecord for defining one datapoint ruleset per LogicalRecord -->
         <xsl:for-each select="//l:LogicalRecord">
             <xsl:variable name="dataset" select="l:LogicalRecordName/r:String"/>
-            <xsl:value-of select="concat('&#xA;', $dataset, ' := input_table;')"/>
+            
+            
+            <xsl:value-of select="concat('&#xA;', $dataset, ' &lt;- input_table;')"/>
             <!-- Define datapoint ruleset with a signature including all variables in the LogicalRecord. The rule signature should be changed if each variable does not produce one rule
              -->
+            
+            <!-- Keep only variable to be checked: for testing purpose -->
+            <!-- <xsl:variable name="keep" select="concat('keep ', string-join(l:VariablesInRecord/l:Variable/l:VariableName/r:String, ', '))"></xsl:variable>
+            <xsl:value-of select="concat('&#xA;', $dataset, ' &lt;- input_table[', $keep,  '];')"/> -->
             <xsl:value-of
-                select="concat('&#xA;define datapoint ruleset dpr_', $dataset, ' (variable ', string-join(l:VariablesInRecord/l:Variable/l:VariableName/r:String, ', '), ') is')"/>
+                select="concat('&#xA;define datapoint ruleset dpr_', $dataset, ' (variable ', string-join(l:VariablesInRecord/l:Variable/l:VariableName/r:String, ', '), ') is')"/>  
             <!-- Apply template for defining one rule per variable in the LogicalRecord -->
             <xsl:apply-templates select="."> </xsl:apply-templates>
             <xsl:value-of
-                select="concat('&#xA;ds_', $dataset, '_validation_all', ' := check_datapoint(', $dataset, ', dpr_', $dataset, ' all);')"/>
+                select="concat('&#xA;ds_', $dataset, '_validation_all', ' &lt;- check_datapoint(', $dataset, ', dpr_', $dataset, ' all);')"/>
             <xsl:value-of
-                select="concat('&#xA;ds_', $dataset, '_validation_invalid', ' := check_datapoint(', $dataset, ', dpr_', $dataset, ' invalid);')"
+                select="concat('&#xA;ds_', $dataset, '_validation_invalid', ' &lt;- check_datapoint(', $dataset, ', dpr_', $dataset, ' invalid);')"
             />
         </xsl:for-each>
     </xsl:template>
@@ -81,12 +88,12 @@
             <!-- Create one vtl rule (between) if min and max lengths filled -->
             <xsl:when test="@minLength and @maxLength and not(@regExp)">
                 <xsl:value-of
-                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '), ', @minLength, ', ', @maxLength, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '), ', @minLength, ', ', @maxLength, ')', ' errorcode &quot;Value ou of bounds&quot;', $semicolon)"
                 />
             </xsl:when>
             <xsl:when test="@minLength and @maxLength and @regExp">
                 <xsl:value-of
-                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '), ', @minLength, ', ', @maxLength, ')', ' and ', $matchCharacters, ' errorcode &quot;Value not included between min and max or not matched with regular expression&quot;', $semicolon)"
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(length(', $variableName, '), ', @minLength, ', ', @maxLength, ')', ' and ', $matchCharacters, ' errorcode &quot;Value out of bounds or not matched with regular expression&quot;', $semicolon)"
                 />
             </xsl:when>
             <!-- Create one rule if regExp filled -->
@@ -106,9 +113,9 @@
         <xsl:param name="variableName"/>
         <xsl:param name="semicolon"/>
         <xsl:choose>
-            <xsl:when test=".//r:NumberRange/r:Low and .//r:NumberRange/r:High">
+            <xsl:when test="../r:NumberRange/r:Low and ../r:NumberRange/r:High">
                 <xsl:value-of
-                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', .//r:NumberRange/r:Low, ', ', .//r:NumberRange/r:High, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', integer), ', ../r:NumberRange/r:Low, ', ', ../r:NumberRange/r:High, ')', ' errorcode &quot;Value out of bounds&quot;', $semicolon)"
                 />
             </xsl:when>
             <xsl:otherwise>
@@ -116,16 +123,48 @@
                     select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"
                 />
             </xsl:otherwise>
-
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="r:NumericTypeCode[text() = 'Float']">
+        <xsl:param name="variableName"/>
+        <xsl:param name="semicolon"/>
+        <xsl:choose>
+            <xsl:when test="../r:NumberRange/r:Low and ../r:NumberRange/r:High">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', ../r:NumberRange/r:Low, ', ', ../r:NumberRange/r:High, ')', ' errorcode &quot;Value out of bounds&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of
+                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"
+                />
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
     <xsl:template match="r:NumericTypeCode[text() = 'Double']">
         <xsl:param name="variableName"/>
         <xsl:param name="semicolon"/>
-        <xsl:value-of
+        <xsl:choose>
+            <xsl:when test="../r:NumberRange/r:Low and ../r:NumberRange/r:High">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', ../r:NumberRange/r:Low, ', ', ../r:NumberRange/r:High, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:when test="not(../r:NumberRange/r:Low and ../r:NumberRange/r:High)">
+                <xsl:value-of
+                    select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', ../r:NumberRange/r:Low, ', ', ../r:NumberRange/r:High, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
+                />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of
+                    select="concat('&#xA;', '// ', 'Incomplete metadata for variable: ', $variableName)"
+                />
+            </xsl:otherwise>
+        </xsl:choose>
+        <!--  <xsl:value-of
             select="concat('&#xA;', 'rule_', $variableName, ' : ', 'between(cast(', $variableName, ', number), ', //r:NumberRange/r:Low, ', ', //r:NumberRange/r:High, ')', ' errorcode &quot;Value not included between min and max&quot;', $semicolon)"
-        />
+        /> -->
     </xsl:template>
 
     <xsl:template match="r:DateTypeCode[text() = 'Year']">

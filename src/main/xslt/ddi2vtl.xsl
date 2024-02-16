@@ -5,10 +5,9 @@
     xmlns:p="http://purl.org/dc/elements/1.1/" exclude-result-prefixes="#all" version="3.0">
 
     <xsl:output method="text" indent="no" media-type="text/plain" encoding="UTF-8"/>
-    <!-- l:RepresentedVariable or l:VariableRepresentation: How to pass a variable in XPATH expression? -->
-    <!-- <xsl:variable name="representation">l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode</xsl:variable> -->
+    <!-- l:RepresentedVariable or l:VariableRepresentation: How to pass a variable in XPATH expression? -->   
     <xsl:variable name="representation" select="'l:RepresentedVariable'"/>
-
+    <!-- <xsl:variable name="representation">l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode</xsl:variable> -->
     <xd:doc>
         <xd:desc>
             <xd:p>root : Browse each logicalRecord for defining one datapoint ruleset per LogicalRecord</xd:p>

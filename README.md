@@ -42,5 +42,5 @@ To test your own DDI file, perform the following steps:
   - and uncomment the xsl variable
   ```xml
   <xsl:variable name="representation" select="'l:RepresentedVariable'"/>
-  ```xml
+  ```
 4. Run both scripts `dereference` then `ddi2vtl` as mentionned in section "Get started"

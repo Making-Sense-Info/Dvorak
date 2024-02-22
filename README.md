@@ -34,7 +34,7 @@ See all available command line options in the [Saxon documentation](https://www.
 
 ### Customized usage
 
-DDI is a 3.2 DDI XML file. A [DDI PhysicalInstance](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/PhysicalInstance/) must be the top-level reference of a Fragment Instance serialized atomically.
+DDI input is a 3.2 DDI XML file. A [DDI PhysicalInstance](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/PhysicalInstance/) must be the top-level reference of a Fragment Instance serialized atomically.
 Two different models are supported:
 1. one containing [InstanceVariable](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/Variable/) referencing [RepresentedVariable](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/RepresentedVariable/) with the DDI representation.
 2. one containing [InstanceVariable](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/Variable/) serializing DDI representation inline

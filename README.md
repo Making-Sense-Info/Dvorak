@@ -55,3 +55,8 @@ To test your own DDI file, perform the following steps:
 
 ## References
 
+This work has been the subject of two presentations at international conferences :
+- **Using data description to automate validation with VTL** at the [9th SDMX Global Conference](https://www.sdmx2023.org/)
+  - [PDF medium of presentation](https://www.sdmx2023.org/plenary/SESSION_4/Thomas%20Dubois-%20Franck%20Cotton%20-%20FINAL.pdf)
+  - [Video](https://youtu.be/7F9dQevApJA?t=9643)
+- [**Documenting and validating administrative data with DDI**](https://zenodo.org/records/10259088) at the [15th Annual European DDI User Conference (EDDI 2023)](https://www.eddi-conferences.eu/)

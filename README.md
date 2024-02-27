@@ -45,16 +45,7 @@ Two different models are supported:
 To test your own DDI file, perform the following steps:
 1. Add your DDI file in `src/test/ddi` (e.g. `my-ddi-file.xml`)
 2. Change the name of the source DDI file in the script `dereference` (e.g. change `physicalInstance-test.xml` to `my-ddi-file.xml`). If desired, you also can change the name of the generated file in the script `ddi2vtl`
-3. In case of the DDI model option 2, in the script `src\main\xslt\ddi2vtl.xsl`:
-  - Uncomment the xsl variable 
-  ```xml
-  <!-- <xsl:variable name="representation">l:RepresentedVariable/r:CodeRepresentation | l:RepresentedVariable/r:DateTimeRepresentation/r:DateTypeCode | l:RepresentedVariable/r:TextRepresentation | l:RepresentedVariable/r:NumericRepresentation/r:NumericTypeCode</xsl:variable> -->
-  ```
-  - and comment the xsl variable
-  ```xml
-  <xsl:variable name="representation" select="'l:RepresentedVariable'"/>
-  ```
-4. Run both scripts `dereference` then `ddi2vtl` as mentionned in section "Get started"
+3. Run both scripts `dereference` then `ddi2vtl` as mentionned in section "Get started"
 
 ## References
 

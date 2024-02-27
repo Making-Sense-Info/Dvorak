@@ -1,7 +1,10 @@
 # Dvořák
 
-DDI to VTL exploratory work. This allows VTL rules to be generated to check data conformity with its documentation expressed in DDI.
-The generation process takes as input a DDI PhysicalInstance expressed in 3.2 DDI XML file using DDI Fragment Instance and generates a text file containing VTL rules. The process is split into two steps : 
+[DDI](https://ddialliance.org/) to [VTL](https://sdmx.org/?page_id=5096) exploratory work.
+
+This allows VTL rules to be generated to check data conformity with its documentation expressed in DDI.
+
+The generation process takes as input a DDI PhysicalInstance expressed in 3.2 DDI XML file using DDI Fragment Instance and generates a text file containing VTL rules. The process is split into two steps: 
 
 1. `dereference` building an XML file containing a dereferenced Physical Instance 
 2. `ddi2vtl` generating text file containing VTL rules

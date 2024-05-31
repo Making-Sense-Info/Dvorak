@@ -7,7 +7,7 @@
     <xsl:output method="text" indent="no" media-type="text/plain" encoding="UTF-8"/>
     <xd:doc>
         <xd:desc>
-            <xd:p>root : Browse each logicalRecord for defining one datapoint ruleset per
+            <xd:p>root: Browse each logicalRecord for defining one datapoint ruleset per
                 LogicalRecord</xd:p>
         </xd:desc>
     </xd:doc>
@@ -17,7 +17,7 @@
 
     <xd:doc>
         <xd:desc>
-            <xd:p>default template : do nothing</xd:p>
+            <xd:p>default template: do nothing</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="*" mode="#all"/>
@@ -60,7 +60,7 @@
 
         <xsl:if test="$variables-rules-structure//variable[not(rule)]">
             <xsl:value-of
-                select="concat('// Variables without rules : ', string-join($variables-rules-structure//variable[not(rule)]/@variable-name, ', '), '&#xA;')"
+                select="concat('// Variables without rules: ', string-join($variables-rules-structure//variable[not(rule)]/@variable-name, ', '), '&#xA;')"
             />
         </xsl:if>
         <xsl:value-of select="concat($dataset, ' &lt;- input_table;')"/>
@@ -115,7 +115,7 @@
 
     <xd:doc>
         <xd:desc>
-            <xd:p>the TextRepresentation may have 2 rules : the string length limits and a
+            <xd:p>the TextRepresentation may have 2 rules: the string length limits and a
                 regexp</xd:p>
         </xd:desc>
         <xd:param name="variable-name"/>
@@ -148,7 +148,7 @@
 
     <xd:doc>
         <xd:desc>
-            <xd:p>the NumericRepresentation may have 2 rules : with its extremal values + with the
+            <xd:p>the NumericRepresentation may have 2 rules: with its extremal values + with the
                 number of decimals</xd:p>
         </xd:desc>
         <xd:param name="variable-name"/>

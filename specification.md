@@ -36,7 +36,7 @@ ds_ETAB_validation_invalid <- check_datapoint(ETAB, dpr_ETAB invalid);
 ```
 
 ## Mapping between DDI representation and VTL rule
-Name of the instance variable is used for defining rules. 
+Variable name and in some cases combined with the rule type are used for defining rules.
 
 ### Numeric representation
 
@@ -44,11 +44,11 @@ Name of the instance variable is used for defining rules.
 Here is a DDI/XML representation for Integer including range 
 ```xml
 <r:NumericRepresentation blankIsMissingValue="false">
-        <r:NumberRange>
-          <r:Low isInclusive="false">1</r:Low>
-          <r:High isInclusive="false">999</r:High>
-        </r:NumberRange>
-        <r:NumericTypeCode>Integer</r:NumericTypeCode>
+  <r:NumberRange>
+    <r:Low isInclusive="false">1</r:Low>
+    <r:High isInclusive="false">999</r:High>
+  </r:NumberRange>
+  <r:NumericTypeCode>Integer</r:NumericTypeCode>
 </r:NumericRepresentation>
 ```
 

@@ -13,6 +13,8 @@ The generation process can be represented as follow:
 
 ![](./img/vtl-generation-process.svg)
 
+For more details on transformation, see the [specification](./specifcation.md).
+
 ## Install
 
 - clone the repository
@@ -49,7 +51,7 @@ To test your own DDI file, perform the following steps:
 
 ## References
 
-This work has been the subject of two presentations at international conferences :
+This work has been the subject of two presentations at international conferences:
 - **Using data description to automate validation with VTL** at the [9th SDMX Global Conference](https://www.sdmx2023.org/)
   - [PDF medium of presentation](https://www.sdmx2023.org/plenary/SESSION_4/Thomas%20Dubois-%20Franck%20Cotton%20-%20FINAL.pdf)
   - [Video](https://youtu.be/7F9dQevApJA?t=9643)

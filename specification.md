@@ -91,8 +91,30 @@ rule_mois_decl : match_characters(mois_decl, "^\d{4}-(((0)[0-9])|((1)[0-2]))-([0
 ```
 
 #### Year
+Here is a DDI/XML DateTime representation for Year 
+```xml
+<r:DateTimeRepresentation blankIsMissingValue="false">
+  <r:DateTypeCode>Year</r:DateTypeCode>
+</r:DateTimeRepresentation>
+```
+The idea is to check if the data value is compliant with the regular expression defining a date YYYY. The corresponding VTL rule is as follow where `year_decl` is the name of the instance variable:
+
+```
+rule_year_decl : match_characters(year_decl, "^\d{4}$") errorcode "Date format YYYY not valid";
+```
 
 #### YearMonth
+Here is a DDI/XML DateTime representation for YearMonth
+```xml
+<r:DateTimeRepresentation blankIsMissingValue="false">
+  <r:DateTypeCode>YearMonth</r:DateTypeCode>
+</r:DateTimeRepresentation>
+```
+The idea is to check if the data value is compliant with the regular expression defining a date YYYY-MM. The corresponding VTL rule is as follow where `year_month_decl` is the name of the instance variable:
+
+```
+rule_year_month_decl : match_characters(year_month_decl, "^\d{4}-(((0)[0-9])|((1)[0-2]))$") errorcode "Date format YYYY-MM not valid";
+```
 
 ### Code representation
 

@@ -13,7 +13,7 @@ The generation process can be represented as follow:
 
 ![](./img/vtl-generation-process.svg)
 
-For more details on transformation, see the [specification](./specifcation.md).
+For more details on transformation, see the [specification](./specification.md).
 
 ## Install
 

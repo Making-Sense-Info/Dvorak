@@ -122,17 +122,6 @@
     </xd:doc>
     <xsl:template match="r:TextRepresentation" mode="variable-rule">
         <xsl:param name="variable-name"/>
-        <xsl:if test="@regExp">
-            <rule>
-                <constraint>
-                    <xsl:value-of
-                        select="concat('match_characters(', $variable-name, ', &quot;', @regExp, '&quot;)')"
-                    />
-                </constraint>
-                <errorcode>Value not matched with regular expression</errorcode>
-                <ruletype>regexp</ruletype>
-            </rule>
-        </xsl:if>
         <xsl:if test="@minLength and @maxLength">
             <rule>
                 <constraint>
@@ -142,6 +131,17 @@
                 </constraint>
                 <errorcode>Value out of bounds</errorcode>
                 <ruletype>length</ruletype>
+            </rule>
+        </xsl:if>
+        <xsl:if test="@regExp">
+            <rule>
+                <constraint>
+                    <xsl:value-of
+                        select="concat('match_characters(', $variable-name, ', &quot;', @regExp, '&quot;)')"
+                    />
+                </constraint>
+                <errorcode>Value not matched with regular expression</errorcode>
+                <ruletype>regexp</ruletype>
             </rule>
         </xsl:if>
     </xsl:template>

@@ -49,6 +49,10 @@ To test your own DDI file, perform the following steps:
 2. Change the name of the source DDI file in the script `dereference` (e.g. change `physicalInstance-test.xml` to `my-ddi-file.xml`). If desired, you also can change the name of the generated file in the script `ddi2vtl`
 3. Run both scripts `dereference` then `ddi2vtl` as mentionned in section "Get started"
 
+### Execution of generated VTL rules
+
+The execution of generated VTL rules is out of the scope of this repository. As an example of a VTL engine, see the [Trevas Java engine](https://github.com/InseeFr/Trevas) available in Open Source.
+
 ## References
 
 This work has been the subject of two presentations at international conferences:

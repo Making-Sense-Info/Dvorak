@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ddi:FragmentInstance xmlns:r="ddi:reusable:3_2" xmlns:ddi="ddi:instance:3_2">
+<ddi:FragmentInstance xmlns:r="ddi:reusable:3_3" xmlns:ddi="ddi:instance:3_3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="C:/Users/YLZBWC/Documents/Standards/DDI/Schema/3.3/DDI_3_3_2020-04-15/DDI_L_3_3_2020_04_15/XMLSchema/instance.xsd">
   <ddi:TopLevelReference>
     <r:Agency>fr.insee</r:Agency>
     <r:ID>53f892f1-4ddd-4768-9341-0cc84e398d3f</r:ID>
     <r:Version>1</r:Version>
     <r:TypeOfObject>PhysicalInstance</r:TypeOfObject>
   </ddi:TopLevelReference>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <PhysicalInstance isUniversallyUnique="true" versionDate="2023-01-26T10:32:51.6004005Z"
-      xmlns="ddi:physicalinstance:3_2">
+      xmlns="ddi:physicalinstance:3_3">
       <r:URN>urn:ddi:fr.insee:53f892f1-4ddd-4768-9341-0cc84e398d3f:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>53f892f1-4ddd-4768-9341-0cc84e398d3f</r:ID>
@@ -26,9 +28,9 @@
       </r:DataRelationshipReference>
     </PhysicalInstance>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <DataRelationship isUniversallyUnique="true" versionDate="2023-01-26T10:36:58.7958583Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:c7f59f89-59bd-434a-9c07-2ffa7ec6711a:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>c7f59f89-59bd-434a-9c07-2ffa7ec6711a</r:ID>
@@ -88,9 +90,9 @@
       </LogicalRecord>
     </DataRelationship>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:21:09.0596061Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:7a43177f-df43-48b1-9603-259340e92696:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>7a43177f-df43-48b1-9603-259340e92696</r:ID>
@@ -101,17 +103,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">Internal identifier for establishment</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>5e186ebd-1b6b-4bad-a22b-1d7812a9a861</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2023-01-26T10:35:46.3813866Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:5e186ebd-1b6b-4bad-a22b-1d7812a9a861:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>5e186ebd-1b6b-4bad-a22b-1d7812a9a861</r:ID>
@@ -131,9 +133,9 @@
       </r:NumericRepresentation>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T07:01:58.3273952Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:1aba9327-485e-4e97-8ede-b375c8f3b76b:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>1aba9327-485e-4e97-8ede-b375c8f3b76b</r:ID>
@@ -144,17 +146,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">Company ID</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>51d1f4e8-5936-4390-ab09-056c6c7a6a3e</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2023-01-12T13:45:35.6248498Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:51d1f4e8-5936-4390-ab09-056c6c7a6a3e:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>51d1f4e8-5936-4390-ab09-056c6c7a6a3e</r:ID>
@@ -169,9 +171,9 @@
         regExp="[0-9]*[1-9][0-9]*"/>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:57:31.6528065Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:96b307fc-a555-4160-9d83-b6568bb0f274:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>96b307fc-a555-4160-9d83-b6568bb0f274</r:ID>
@@ -182,17 +184,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">Name of legal entity</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>92f97f38-020d-4a71-a411-104edd87496d</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2023-01-26T10:39:32.4658257Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:92f97f38-020d-4a71-a411-104edd87496d:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>92f97f38-020d-4a71-a411-104edd87496d</r:ID>
@@ -206,9 +208,9 @@
       <r:TextRepresentation/>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:51:19.9570944Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:15c84163-b6bd-421d-9c1a-d23c84710fff:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>15c84163-b6bd-421d-9c1a-d23c84710fff</r:ID>
@@ -219,17 +221,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">Date of reporting</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b5</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2022-10-20T06:50:25.3237716Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:ffc9117f-cb0b-4d78-9c7f-f97a7c3537b5:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b5</r:ID>
@@ -245,9 +247,9 @@
       </r:DateTimeRepresentation>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:52:19.9570944Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:15c84163-b6bd-421d-9c1a-d23c84710ffg:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>15c84163-b6bd-421d-9c1a-d23c84710ffg</r:ID>
@@ -258,17 +260,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">Year of reporting</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b6</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2022-10-20T06:51:25.3237716Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:ffc9117f-cb0b-4d78-9c7f-f97a7c3537b6:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b6</r:ID>
@@ -284,9 +286,9 @@
       </r:DateTimeRepresentation>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:53:19.9570944Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:15c84163-b6bd-421d-9c1a-d23c84710ffh:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>15c84163-b6bd-421d-9c1a-d23c84710ffh</r:ID>
@@ -297,17 +299,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">Year and month of reporting</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b7</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2022-10-20T06:52:25.3237716Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:ffc9117f-cb0b-4d78-9c7f-f97a7c3537b7:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>ffc9117f-cb0b-4d78-9c7f-f97a7c3537b7</r:ID>
@@ -323,9 +325,9 @@
       </r:DateTimeRepresentation>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Variable isUniversallyUnique="true" versionDate="2022-10-20T06:28:20.5666899Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:70f9383e-af65-49c4-9ed0-18eca0579d8e:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>70f9383e-af65-49c4-9ed0-18eca0579d8e</r:ID>
@@ -336,17 +338,17 @@
       <r:Label>
         <r:Content xml:lang="en-IE">code reporting</r:Content>
       </r:Label>
-      <RepresentedVariableReference>
+      <r:RepresentedVariableReference>
         <r:Agency>fr.insee</r:Agency>
         <r:ID>9bd51af1-dc6e-4db5-bfcb-d6559b2f2cf8</r:ID>
         <r:Version>1</r:Version>
         <r:TypeOfObject>RepresentedVariable</r:TypeOfObject>
-      </RepresentedVariableReference>
+      </r:RepresentedVariableReference>
     </Variable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <RepresentedVariable isUniversallyUnique="true" versionDate="2022-10-20T06:28:44.7152578Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:9bd51af1-dc6e-4db5-bfcb-d6559b2f2cf8:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>9bd51af1-dc6e-4db5-bfcb-d6559b2f2cf8</r:ID>
@@ -364,9 +366,9 @@
       </r:CodeRepresentation>
     </RepresentedVariable>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <CodeList isUniversallyUnique="true" versionDate="2022-10-20T06:27:16.8130369Z"
-      xmlns="ddi:logicalproduct:3_2">
+      xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:4283cb7f-7df8-4a4c-90ec-eb507f468ef2:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>4283cb7f-7df8-4a4c-90ec-eb507f468ef2</r:ID>
@@ -399,9 +401,9 @@
       </Code>
     </CodeList>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Category isUniversallyUnique="true" versionDate="2022-10-20T06:27:16.8130369Z"
-      isMissing="false" xmlns="ddi:logicalproduct:3_2">
+      isMissing="false" xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:e1fb551f-111e-4b44-a8bd-fbbb65662b7b:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>e1fb551f-111e-4b44-a8bd-fbbb65662b7b</r:ID>
@@ -411,9 +413,9 @@
       </r:Label>
     </Category>
   </ddi:Fragment>
-  <ddi:Fragment xmlns:r="ddi:reusable:3_2">
+  <ddi:Fragment xmlns:r="ddi:reusable:3_3">
     <Category isUniversallyUnique="true" versionDate="2022-10-20T06:27:16.8130369Z"
-      isMissing="false" xmlns="ddi:logicalproduct:3_2">
+      isMissing="false" xmlns="ddi:logicalproduct:3_3">
       <r:URN>urn:ddi:fr.insee:e238ac08-f7b9-4003-83df-a3686b1fc4ff:1</r:URN>
       <r:Agency>fr.insee</r:Agency>
       <r:ID>e238ac08-f7b9-4003-83df-a3686b1fc4ff</r:ID>

@@ -4,7 +4,7 @@
 
 This allows VTL rules to be generated to check data conformity with its documentation expressed in DDI.
 
-The generation process takes as input a DDI PhysicalInstance expressed in 3.2 DDI XML file using DDI Fragment Instance and generates a text file containing VTL rules. The process is split into two steps: 
+The generation process takes as input a DDI PhysicalInstance expressed in 3.3 DDI XML file using DDI Fragment Instance and generates a text file containing VTL rules. The process is split into two steps: 
 
 1. `dereference` building an XML file containing a dereferenced Physical Instance 
 2. `ddi2vtl` generating text file containing VTL rules
@@ -39,7 +39,7 @@ See all available command line options in the [Saxon documentation](https://www.
 
 ### Customized usage
 
-DDI input is a 3.2 DDI XML file. A [DDI PhysicalInstance](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/PhysicalInstance/) must be the top-level reference of a Fragment Instance serialized atomically.
+DDI input is a 3.3 DDI XML file. A [DDI PhysicalInstance](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/PhysicalInstance/) must be the top-level reference of a Fragment Instance serialized atomically.
 Two different models are supported:
 1. one containing [InstanceVariable](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/Variable/) referencing [RepresentedVariable](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/RepresentedVariable/) with the DDI representation.
 2. one containing [InstanceVariable](https://ddialliance.github.io/ddimodel-web/DDI-L-3.3/item-types/Variable/) serializing DDI representation inline

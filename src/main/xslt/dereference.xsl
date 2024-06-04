@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:ddi="ddi:instance:3_2"
-    xmlns:r="ddi:reusable:3_2"
+    xmlns:ddi="ddi:instance:3_3"
+    xmlns:r="ddi:reusable:3_3"
     version="2.0">
     
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>

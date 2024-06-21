@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ddi:FragmentInstance xmlns:r="ddi:reusable:3_3" xmlns:ddi="ddi:instance:3_3"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="C:/Users/YLZBWC/Documents/Standards/DDI/Schema/3.3/DDI_3_3_2020-04-15/DDI_L_3_3_2020_04_15/XMLSchema/instance.xsd">
+  xsi:noNamespaceSchemaLocation="https://ddialliance.org/Specification/DDI-Lifecycle/3.3/XMLSchema/instance.xsd">
   <ddi:TopLevelReference>
     <r:Agency>fr.insee</r:Agency>
     <r:ID>53f892f1-4ddd-4768-9341-0cc84e398d3f</r:ID>
